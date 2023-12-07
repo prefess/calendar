@@ -46,7 +46,7 @@ const renderCalendar = () => {
     for(let i = 1; i <= lastDay; i++) {
         let day = new Date(date.getFullYear(), date.getMonth(), i);
         let weekDay = day.getDay();
-        if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()) {
+        if(i === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear()) {
             days += `<div class="today">${i}</div>`
         } else {
             if(weekDay == 0) {
@@ -60,8 +60,8 @@ const renderCalendar = () => {
     for(let j = 1; j <= nextDays; j++) {
         days += `<div class="next-date"> </div>`;
         // days += `<div class="next-date">${j}</div>`;
-        monthDays.innerHTML = days;
     }
+    monthDays.innerHTML = days;
 }
 
 document.querySelector('.prev').addEventListener('click', () => {
